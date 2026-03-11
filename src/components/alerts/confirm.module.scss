@@ -1,0 +1,111 @@
+@use '../../scss/variables.scss' as *;
+@use '../../scss/common.scss' as *;
+
+.confirm-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 130;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  animation: overlayFadeIn $anim-duration-overlay $ease-out-expo;
+}
+
+.confirm {
+  width: 100%;
+  max-width: 22rem;
+  padding: $space-5 $space-5;
+  background: $color-surface;
+  border-radius: $radius-lg;
+  border: 0.0625rem solid $color-divider;
+  box-shadow: $shadow-level-3;
+  animation: contentScaleIn $anim-duration-enter $ease-out-expo;
+
+  &__title {
+    @extend %typography-title;
+    margin-bottom: $space-2;
+  }
+
+  &__message {
+    @extend %typography-body;
+    margin: 0 0 $space-4;
+  }
+
+  &__input {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 2.25rem;
+    padding: $space-2 $space-3;
+    margin-bottom: $space-4;
+    @extend %typography-body-md;
+    color: $color-on-surface;
+    background: $color-surface;
+    border: 0.0625rem solid $color-border;
+    border-radius: $radius-md;
+    outline: none;
+    transition:
+      border-color $transition-fast,
+      box-shadow $transition-fast;
+
+    &::placeholder {
+      color: rgba(0, 0, 0, 0.5);
+    }
+
+    &:hover:not(:focus) {
+      border-color: rgba(0, 0, 0, 0.4);
+    }
+
+    &:focus {
+      border-color: $color-primary;
+      @include focusRing;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: $space-2;
+  }
+
+  &__btn {
+    min-height: 2rem;
+    padding: 0 $space-4;
+    font-family: inherit;
+    @extend %typography-button;
+    border-radius: $radius-md;
+    border: none;
+    cursor: pointer;
+    transition:
+      background-color $transition-fast,
+      color $transition-fast,
+      box-shadow $transition-fast;
+
+    &[data-action='confirm'] {
+      background: $color-primary;
+      color: $color-on-primary;
+
+      &:hover {
+        background: $color-primary-variant;
+      }
+
+      &:focus-visible {
+        @include focusRing;
+      }
+    }
+
+    &[data-action='cancel'] {
+      background: transparent;
+      color: $ui-text-muted;
+
+      &:hover {
+        background: $color-hover;
+        color: $ui-text;
+      }
+
+      &:focus-visible {
+        @include focusRing;
+      }
+    }
+  }
+}

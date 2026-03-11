@@ -1,0 +1,44 @@
+@use '../../scss/variables.scss' as *;
+@use '../../scss/common.scss' as *;
+
+.settings {
+  grid-area: settings;
+  display: flex;
+  flex-direction: column;
+  gap: $space-2;
+  padding: $space-3;
+  @extend %typography-body;
+  overflow: auto;
+  background-color: $color-surface;
+  box-shadow: $shadow-level-1;
+  border-inline-start: 0.0625rem solid $color-divider;
+  @include scrollbarSkin;
+
+  &__section-title {
+    @extend %typography-subtitle;
+    margin-bottom: $space-1;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+    padding: $space-3;
+    border-radius: $radius-md;
+    @include surfaceCard;
+    animation: contentScaleIn $anim-duration-enter $ease-out-expo;
+  }
+
+  &__label {
+    @extend %typography-caption-medium;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  &__control {
+    margin-top: $space-1;
+  }
+
+  textarea.settings__control {
+    min-height: 4.5rem;
+  }
+}

@@ -1,0 +1,30 @@
+@use './scss/variables.scss' as *;
+@use './scss/reset.scss';
+
+
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+  user-select: none;
+}
+
+.app {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 18.75rem minmax(0, 1fr) 22.5rem;
+  grid-template-areas:
+    'header header header'
+    'menu sandbox settings';
+  height: 100%;
+  background-color: $color-background;
+  .is-dark & {
+    background: #131415;
+  }
+
+  .lock & {
+    pointer-events: none;
+  }
+}

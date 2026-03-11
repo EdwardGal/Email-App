@@ -1,0 +1,185 @@
+@use 'variables.scss' as *;
+
+// ============== Keyframes (единые анимации показа/скрытия) ==============
+
+@keyframes overlayFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes contentScaleIn {
+  from {
+    opacity: 0;
+    transform: translateY(0.25rem) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes contentSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes contentSlideUpCentered {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes contentSlideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(-0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes dropIndicatorIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes sandboxItemDragging {
+  0%,
+  100% {
+    transform: scale(1.02);
+    box-shadow: $shadow-level-3;
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 0.5rem 1.25rem rgba(0, 0, 0, 0.14), 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  }
+}
+
+// ============== Mixins ==============
+
+@mixin focusRing {
+  outline: none;
+  box-shadow: 0 0 0 0.125rem $color-focus;
+}
+
+@mixin focusRingOnPrimary {
+  outline: none;
+  box-shadow: 0 0 0 0.125rem rgba(255, 255, 255, 0.5);
+}
+
+@mixin scrollbarSkin {
+  scrollbar-width: thin;
+  scrollbar-color: $scrollbar-thumb $scrollbar-track;
+
+  &::-webkit-scrollbar {
+    width: $scrollbar-width;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $scrollbar-track;
+    border-radius: $radius-sm;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $scrollbar-thumb;
+    border-radius: $radius-sm;
+
+    &:hover {
+      background: $scrollbar-thumb-hover;
+    }
+  }
+}
+
+@mixin hideScrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@mixin surfaceCard {
+  background-color: $color-surface;
+  border-radius: $radius-md;
+  border: 0.0625rem solid $color-divider;
+  box-shadow: $shadow-level-1;
+}
+
+// ============== Типографика (общие классы для переиспользования) ==============
+
+%typography-title {
+  font-size: $font-size-xl;
+  font-weight: 500;
+  line-height: $line-height-tight;
+  color: $ui-text;
+}
+
+%typography-subtitle {
+  font-size: $font-size-xs;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+%typography-body {
+  font-size: $font-size-sm;
+  line-height: $line-height-normal;
+  color: $ui-text-muted;
+}
+
+%typography-body-md {
+  font-size: $font-size-md;
+  line-height: $line-height-normal;
+  color: $ui-text;
+}
+
+%typography-label {
+  font-size: $font-size-md;
+  font-weight: 500;
+  line-height: $line-height-normal;
+  color: $ui-text;
+}
+
+%typography-button {
+  font-size: $font-size-sm;
+  font-weight: 500;
+  line-height: $line-height-normal;
+}
+
+%typography-caption {
+  font-size: $font-size-xs;
+  line-height: $line-height-normal;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+%typography-caption-medium {
+  font-size: $font-size-xs;
+  font-weight: 500;
+  line-height: $line-height-normal;
+  color: $ui-text-muted;
+}

@@ -1,0 +1,186 @@
+@use '../../scss/variables.scss' as *;
+@use '../../scss/common.scss' as *;
+
+.menu {
+  grid-area: menu;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: $space-3;
+  background-color: $color-surface;
+  box-shadow: $shadow-level-1;
+  border-inline-end: 0.0625rem solid $color-divider;
+
+  &__header {
+    padding-bottom: $space-3;
+    border-bottom: 0.0625rem solid $color-divider;
+  }
+
+  &__header-title {
+    display: flex;
+    align-items: center;
+    gap: $space-2;
+  }
+
+  &__header-logo {
+    width: 2rem;
+    height: 2rem;
+    font-size: $icon-size-md;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba($color-primary, 0.1);
+    color: $color-primary;
+  }
+
+  &__header-name {
+    @extend %typography-label;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: $space-1;
+    margin-top: $space-2;
+  }
+
+  &__item {
+    border-radius: $radius-md;
+    overflow: hidden;
+    transition:
+      background-color $transition-normal,
+      box-shadow $transition-normal;
+
+    &.is-active {
+      background-color: $color-selected;
+      box-shadow: $shadow-level-1;
+
+      .menu__item-chevron {
+        transform: rotate(180deg);
+      }
+
+      .menu__options {
+        max-height: 25rem;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  &__item-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: $space-2;
+    padding: $space-2 $space-2;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: background-color $transition-fast;
+
+    &:hover {
+      background-color: $color-hover;
+
+      .menu__item-icon,
+      .menu__item-chevron {
+        color: $color-primary;
+      }
+    }
+
+    &:focus-visible {
+      @include focusRing;
+    }
+  }
+
+  &__item-icon {
+    font-size: $icon-size-md;
+    color: rgba(0, 0, 0, 0.7);
+    transition: color $transition-fast;
+  }
+
+  &__item-chevron {
+    font-size: $icon-size-sm;
+    color: rgba(0, 0, 0, 0.6);
+    transition:
+      transform $transition-normal,
+      color $transition-fast;
+  }
+
+  &__label {
+    @extend %typography-body;
+    text-transform: capitalize;
+  }
+
+  &__options {
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow: hidden;
+    padding: 0 $space-2;
+    transition:
+      max-height $anim-duration-overlay $ease-ui,
+      opacity $transition-normal;
+  }
+}
+
+.options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $space-2;
+  padding-bottom: $space-2;
+
+  &__item {
+    flex: 0 0 calc(50% - #{$space-2} / 2);
+    min-height: 4.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: $space-1;
+    padding: $space-2;
+    text-align: left;
+    border-radius: $radius-md;
+    background-color: $color-surface;
+    box-shadow: $shadow-level-1;
+    cursor: grab;
+    transition:
+      background-color $transition-fast,
+      box-shadow $transition-fast,
+      transform $transition-fast;
+
+    &:hover {
+      background-color: rgba($color-primary, 0.06);
+      box-shadow: $shadow-level-2;
+      transform: translateY(-0.125rem);
+
+      .options__icon {
+        color: $color-primary;
+      }
+    }
+
+    &:active {
+      cursor: grabbing;
+    }
+
+    &.dragging {
+      opacity: 0.5;
+      transform: scale(0.98);
+    }
+  }
+
+  &__icon {
+    font-size: $icon-size-sm;
+    color: rgba(0, 0, 0, 0.7);
+    transition: color $transition-fast;
+  }
+
+  &__label {
+    @extend %typography-caption-medium;
+    color: rgba(0, 0, 0, 0.8);
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+}

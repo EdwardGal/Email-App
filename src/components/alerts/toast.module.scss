@@ -1,0 +1,23 @@
+@use '../../scss/variables.scss' as *;
+@use '../../scss/common.scss' as *;
+
+.toast {
+  position: fixed;
+  bottom: $space-5;
+  left: 50%;
+  z-index: 140;
+  transform: translateX(-50%) translateY(0);
+  display: inline-flex;
+  align-items: center;
+  gap: $space-2;
+  min-height: 2.5rem;
+  padding: $space-3 $space-5;
+  max-width: calc(100% - #{$space-4 * 2});
+  @extend %typography-body;
+  color: $color-on-primary;
+  background-color: $color-primary;
+  border: none;
+  border-radius: 62.5rem;
+  box-shadow: $shadow-level-2;
+  animation: contentSlideUpCentered $anim-duration-enter $ease-out-expo;
+}

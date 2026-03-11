@@ -1,0 +1,45 @@
+@use '../../scss/variables.scss' as *;
+@use '../../scss/common.scss' as *;
+
+.empty {
+  margin: $space-5 auto;
+  padding: $space-6 $space-4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-radius: $radius-lg;
+  background-color: rgba(0, 0, 0, 0.03);
+  border: 0.125rem dashed $color-divider;
+
+  :global(.is-dark) & {
+    background-color: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.2);
+
+    .empty__icon {
+      color: rgba(255, 255, 255, 0.5);
+    }
+    .empty__title {
+      color: rgba(255, 255, 255, 0.9);
+    }
+    .empty__desc {
+      color: rgba(255, 255, 255, 0.6);
+    }
+  }
+
+  &__icon {
+    font-size: $icon-size-empty;
+    color: rgba(0, 150, 136, 0.4);
+    margin-bottom: $space-3;
+  }
+
+  &__title {
+    @extend %typography-label;
+    margin: 0 0 $space-2;
+  }
+
+  &__desc {
+    @extend %typography-body;
+    margin: 0;
+  }
+}
