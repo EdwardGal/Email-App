@@ -1,0 +1,55 @@
+.settings {
+  grid-area: settings;
+  padding: var(--eb-space-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--eb-space-sm);
+  overflow: auto;
+  background: var(--eb-surface);
+  border: 1px solid var(--eb-border);
+  border-radius: var(--eb-radius-lg);
+  backdrop-filter: blur(14px);
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--eb-space-xs);
+    padding: var(--eb-space-xs) var(--eb-space-sm) var(--eb-space-sm);
+    background: var(--eb-primary-muted);
+    border-radius: var(--eb-radius-md);
+    box-shadow: var(--eb-shadow-sm);
+  }
+
+  &__label {
+    font-size: var(--eb-font-sm);
+    font-weight: 600;
+    color: var(--eb-text);
+    letter-spacing: 0.01em;
+  }
+
+  &__control {
+    padding: var(--eb-space-sm) var(--eb-space-md);
+    font-size: var(--eb-font-base);
+    color: var(--eb-text);
+    background: var(--eb-surface-strong);
+    border: 1px solid var(--eb-border-strong);
+    border-radius: var(--eb-radius-md);
+    box-shadow: var(--eb-shadow-sm);
+    transition: border-color var(--eb-transition), box-shadow var(--eb-transition), background var(--eb-transition);
+
+    &:hover {
+      border-color: var(--eb-border-interactive);
+      background: var(--eb-white);
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--eb-primary);
+      box-shadow: 0 0 0 3px var(--eb-primary-muted), var(--eb-shadow-sm);
+    }
+
+    &::placeholder {
+      color: var(--eb-text-muted);
+    }
+  }
+}

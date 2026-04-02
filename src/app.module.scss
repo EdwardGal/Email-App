@@ -1,0 +1,12 @@
+.app {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 18.75rem minmax(0, 1fr) 22rem;
+  grid-template-areas:
+    'header header header'
+    'menu sandbox settings';
+  gap: var(--eb-space-sm);
+  padding: var(--eb-space-sm);
+  height: 100vh;
+  background: transparent;
+}

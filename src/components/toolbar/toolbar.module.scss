@@ -1,0 +1,33 @@
+.toolbar {
+  position: absolute;
+  z-index: 110;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--eb-space-3xs);
+  padding: var(--eb-space-2xs);
+  background: var(--eb-surface-soft-82);
+  border: 1px solid var(--eb-border-interactive);
+  border-radius: var(--eb-radius-full);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  
+  button {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--eb-radius-full);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--eb-text);
+    transition: background var(--eb-transition), color var(--eb-transition);
+
+    &:hover {
+      background: var(--eb-primary-muted);
+      color: var(--eb-primary);
+    }
+
+    &:active {
+      background: var(--eb-border);
+    }
+  }
+}

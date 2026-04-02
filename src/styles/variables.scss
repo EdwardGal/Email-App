@@ -1,0 +1,89 @@
+/* Design tokens */
+:root {
+  --eb-primary: #5856d6;
+  --eb-primary-hover: #6361e6;
+  --eb-primary-active: #4a48c4;
+  --eb-primary-muted: rgba(88, 86, 214, 0.14);
+  --eb-on-primary: #ffffff;
+
+  --eb-bg: #f3f4fb;
+  --eb-surface: rgba(255, 255, 255, 0.9);
+  --eb-surface-muted: #f5f6ff;
+
+  --eb-text: #1f1f25;
+  --eb-text-muted: rgba(60, 60, 80, 0.8);
+  --eb-border: rgba(76, 76, 110, 0.18);
+  --eb-border-strong: rgba(76, 76, 110, 0.28);
+
+  --eb-radius-sm: 10px;
+  --eb-radius-md: 12px;
+  --eb-radius-lg: 16px;
+  --eb-radius-full: 9999px;
+
+  --eb-shadow-sm: 0 1px 2px rgba(34, 37, 64, 0.06), 0 4px 12px rgba(34, 37, 64, 0.05);
+  --eb-shadow-md: 0 8px 24px rgba(34, 37, 64, 0.1);
+  --eb-shadow-lg: 0 18px 44px rgba(34, 37, 64, 0.14);
+  --eb-surface-raised: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(245, 246, 255, 0.9) 100%);
+
+  --eb-space-xs: 6px;
+  --eb-space-2xs: 4px;
+  --eb-space-3xs: 2px;
+  --eb-space-sm: 10px;
+  --eb-space-md: 14px;
+  --eb-space-lg: 20px;
+
+  --eb-font-sm: 13px;
+  --eb-font-ss: 12px;
+  --eb-font-base: 14px;
+  --eb-font-md: 15px;
+  --eb-font-lg: 17px;
+
+  --eb-scrollbar-size: 10px;
+  --eb-scrollbar-track: rgba(76, 76, 110, 0.08);
+  --eb-scrollbar-thumb: rgba(88, 86, 214, 0.3);
+  --eb-scrollbar-thumb-hover: rgba(88, 86, 214, 0.48);
+
+  --eb-transition: 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+  --eb-transition-modal: 260ms ease;
+
+  --eb-white: #ffffff;
+  --eb-black: #131415;
+
+  --eb-surface-strong: rgba(255, 255, 255, 0.94);
+  --eb-surface-soft: rgba(255, 255, 255, 0.9);
+  --eb-surface-soft-82: rgba(255, 255, 255, 0.82);
+  --eb-surface-soft-84: rgba(255, 255, 255, 0.84);
+  --eb-surface-soft-88: rgba(255, 255, 255, 0.88);
+  --eb-surface-soft-72: rgba(255, 255, 255, 0.72);
+  --eb-surface-soft-8: rgba(255, 255, 255, 0.8);
+
+  --eb-overlay: rgba(15, 23, 42, 0.28);
+  --eb-overlay-light: rgba(15, 23, 42, 0.18);
+  --eb-overlay-strong: rgba(15, 23, 42, 0.4);
+
+  --eb-success: #34c759;
+  --eb-danger: #ff3b30;
+  --eb-neutral-100: #f2f2f7;
+  --eb-neutral-200: #ebebf0;
+
+  --eb-border-primary-soft: rgba(88, 86, 214, 0.42);
+  --eb-border-interactive: rgba(88, 86, 214, 0.48);
+  --eb-outline-primary-soft: rgba(88, 86, 214, 0.45);
+  --eb-border-active-soft: rgba(60, 60, 67, 0.16);
+  --eb-outline-focus: rgba(99, 97, 230, 0.42);
+
+  --eb-dark-surface: rgba(32, 32, 36, 0.9);
+  --eb-dark-border: rgba(255, 255, 255, 0.26);
+  --eb-dark-text: rgba(255, 255, 255, 0.8);
+
+  --eb-body-bg: linear-gradient(
+    180deg,
+    #f8f8ff 0%,
+    #eceffd 100%
+  );
+  --eb-body-highlight: radial-gradient(
+    1200px 520px at 50% -200px,
+    rgba(255, 255, 255, 0.88),
+    transparent 70%
+  );
+}

@@ -1,0 +1,117 @@
+.prompt {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--eb-space-lg);
+  background: var(--eb-overlay-light);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.22s ease;
+
+  &.is-open {
+    opacity: 1;
+  }
+
+  &.is-closing {
+    opacity: 0;
+  }
+}
+
+.prompt__content {
+  width: 100%;
+  max-width: 28rem;
+  padding: var(--eb-space-lg);
+  background: var(--eb-surface);
+  border-radius: var(--eb-radius-lg);
+  border: 1px solid var(--eb-border);
+  box-shadow: var(--eb-shadow-lg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  transform: translateY(14px) scale(0.985);
+  opacity: 0;
+  transition: transform 0.22s ease, opacity 0.22s ease;
+
+  label {
+    display: block;
+    margin-bottom: var(--eb-space-sm);
+    font-size: var(--eb-font-md);
+    font-weight: 600;
+    color: var(--eb-text);
+  }
+}
+
+.prompt.is-open .prompt__content {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.prompt.is-closing .prompt__content {
+  transform: translateY(10px) scale(0.99);
+  opacity: 0;
+}
+
+.prompt__input {
+  width: 100%;
+  margin-bottom: var(--eb-space-md);
+  padding: var(--eb-space-sm) var(--eb-space-md);
+  font-size: var(--eb-font-base);
+  color: var(--eb-text);
+  background: var(--eb-surface-soft);
+  border: 1px solid var(--eb-border-strong);
+  border-radius: var(--eb-radius-md);
+  transition: border-color var(--eb-transition), box-shadow var(--eb-transition);
+
+  &:focus {
+    outline: none;
+    border-color: var(--eb-primary);
+    box-shadow: 0 0 0 3px var(--eb-primary-muted);
+  }
+
+  &::placeholder {
+    color: var(--eb-text-muted);
+  }
+}
+
+.prompt__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: var(--eb-space-sm);
+}
+
+.prompt__actions button {
+  min-height: 36px;
+  padding: 0 var(--eb-space-md);
+  font-size: var(--eb-font-sm);
+  font-weight: 500;
+  border-radius: var(--eb-radius-md);
+  transition: background var(--eb-transition), color var(--eb-transition), border-color var(--eb-transition);
+}
+
+.prompt__actions button:first-of-type {
+  color: var(--eb-text);
+  background: var(--eb-surface-soft-8);
+  border: 1px solid var(--eb-border-strong);
+
+  &:hover {
+    background: var(--eb-neutral-200);
+    border-color: var(--eb-border-strong);
+  }
+}
+
+.prompt__actions button:last-of-type {
+  color: var(--eb-on-primary);
+  background: var(--eb-primary);
+  border: 1px solid transparent;
+
+  &:hover {
+    background: var(--eb-primary-hover);
+  }
+
+  &:active {
+    background: var(--eb-primary-active);
+  }
+}

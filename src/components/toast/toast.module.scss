@@ -1,0 +1,66 @@
+.toast {
+  position: fixed;
+  bottom: var(--eb-space-lg);
+  left: 50%;
+  z-index: 140;
+  transform: translateX(-50%) translateY(0);
+  padding: 0 var(--eb-space-lg);
+  min-height: 2.5rem;
+  max-width: min(90vw, 480px);
+  display: inline-flex;
+  align-items: center;
+  font-size: var(--eb-font-base);
+  font-weight: 600;
+  color: var(--eb-text);
+  background: var(--eb-surface-soft-88);
+  border: 1px solid var(--eb-border);
+  border-radius: var(--eb-radius-full);
+  box-shadow: var(--eb-shadow-lg);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  animation: toast-in 0.22s ease;
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  letter-spacing: 0.01em;
+  pointer-events: none;
+
+  &::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    margin-right: 8px;
+    border-radius: var(--eb-radius-full);
+    background: var(--eb-success);
+    flex-shrink: 0;
+  }
+
+  &_error::before {
+    background: var(--eb-danger);
+  }
+
+  &_success::before {
+    background: var(--eb-success);
+  }
+}
+
+.toast.is-closing {
+  opacity: 0;
+  transform: translateX(-50%) translateY(8px);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .toast {
+    background: var(--eb-white);
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}

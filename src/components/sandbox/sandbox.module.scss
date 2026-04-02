@@ -1,0 +1,90 @@
+.sandbox {
+  grid-area: sandbox;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: auto;
+  padding: var(--eb-space-md);
+  transition: background var(--eb-transition);
+  background: var(--eb-surface);
+  border-radius: var(--eb-radius-lg);
+  border: 1px solid var(--eb-border);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  &_dark {
+    background: var(--eb-black);
+
+    .sandbox__handle {
+      background: var(--eb-dark-surface);
+      border-color: var(--eb-dark-border);
+      color: var(--eb-dark-text);
+    }
+
+    [contenteditable] {
+      color: var(--eb-white) !important;
+    }
+  }
+
+  &_dropTarget {
+    border-color: var(--eb-border-interactive);
+    box-shadow: inset 0 0 0 2px var(--eb-primary-muted), var(--eb-shadow-sm);
+  }
+
+  &__block {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    border: 1px solid var(--eb-border);
+    border-radius: var(--eb-radius-md);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    &_active,
+    &:hover {
+      border-color: var(--eb-border-interactive);
+    }
+
+    &_active {
+      box-shadow: inset 2px 0 0 var(--eb-primary);
+    }
+  }
+
+  &__preview {
+    a {
+      pointer-events: none;
+    }
+
+  }
+
+  &__handle {
+    position: absolute;
+    top: 50%;
+    right: var(--eb-space-sm);
+    transform: translateY(-50%);
+    z-index: 10;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--eb-radius-full);
+    background: var(--eb-surface-soft-82);
+    border: 1px solid var(--eb-border);
+    color: var(--eb-text-muted);
+    cursor: grab;
+    box-shadow: var(--eb-shadow-sm);
+    transition: background var(--eb-transition), color var(--eb-transition), border-color var(--eb-transition), box-shadow var(--eb-transition);
+
+    &:hover {
+      background: var(--eb-primary-muted);
+      color: var(--eb-primary);
+      border-color: var(--eb-border-interactive);
+      box-shadow: var(--eb-shadow-md);
+    }
+
+    &:active {
+      cursor: grabbing;
+    }
+  }
+}
